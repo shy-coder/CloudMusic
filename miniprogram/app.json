@@ -4,7 +4,7 @@
     "pages/find/find",
     "pages/profile/profile"
   ],
-  "requireBackgroundModes": [
+  "requiredBackgroundModes": [
     "audio"
   ],
   "window": {

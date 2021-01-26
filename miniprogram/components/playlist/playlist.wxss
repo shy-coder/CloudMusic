@@ -1,0 +1,34 @@
+/* components/playlist/playlist.wxss */
+.playlist-container {
+  width: 220rpx;
+  position: relative;
+  padding-bottom: 20rpx;
+}
+
+.playlist-img {
+  width: 100%;
+  height: 220rpx;
+  border-radius: 10rpx;
+}
+
+.playlist-playcount {
+  font-size: 24rpx;
+  color: #fff;
+  text-shadow: 1px 0 0 rgba(0, 0, 0, 0.15);
+  position: absolute;
+  right: 10rpx;
+  top: 4rpx;
+  padding-left: 26rpx;
+  background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAADxklEQVRYR+2WXWhdRRDH/7Mn3gutQlqUaqoSxL5UhYIPxQrSYv3AotViAtoYUfwgYu7OGtCgL4ooJG3Ozia+KNEnbaWFaKGIiF8PRqIP4ldFK4KgRURblFSjD+eMrNzU3PTe3HNvhLx0Xw6cMzvzOzOz/x3CCi9a4fg4A9ByBiqVyuXGmNtVdR2AdUR0tqoeN8b8Wn2+mKbpD0VLWxiAmR8AcC+AzQA+J6Jv8zz/iYhmVfV8IjoXwCYAF6nqqx0dHU+PjY191QykKcDg4OCFSZK8rqqdxpgUwCHv/bF6joeHh9fMzc3dRUT3ADgrSZLeZhBLAvT09JS6uroOEZHJsqxvYmLil2Z/FL8zcyeAkZgtVb0hhPBzo31LAlhr9xLR9caYHa3UdT4YMx8A8JeI9LcMUKlUrjXGvK2qvSGEg0X+fLENM18F4EMAfSLySj0fDTMQ6VX1ZAghNl7byzk3pap/ikhfYYChoaGNWZYdyfN8+/j4+DttRwdgre0nIl8qlbpHR0dnF/uqmwFmfhLA/SKyfjnB497qKYq6sE1E3i8KcICIVnvvdywXoHoqvlHVF0IIY0UBvgTwyVLd2woYMx8G8L2IPFwUQFXVhxAeaSVQI1vn3CSAtd77XU0BBgYG1pTL5RNE9IT3/tn/CeAZVd0uIlHGa9ZpTcjMlwD4DsAHRLTTe39iORDOubWqGkuwiYg2LJbxegDvAdgaLxQiyhqd36JQzPw8gCjNvar6Wgihpgw1ANba/UR0E4Cn8jx/yxjzhohcXDRYPTtr7TFjzI1Zlt1BRI6IZkRk27ztKQDn3G2qOgXgUwCzInINMx81xvSnaTrTDkSlUtlijNknIt3W2mkiOgdAtzHmzjRNY1n+G8mY+VEAq1T1PGPMbu99p7V20hhzxHvv2wFwzg2p6mYR6WXm46q6D8DJOLx47//VhFMZqKrfpQD2AzgsIuScu1tVd4nIznYAmDnOEdMhhD3MnGdZtiVJEgbwtYhEtT0NYLeIbGDmv/M8vy9JkndV9aiIrG4T4I/YU3meX0ZEIiIlZv4YQOytWgDn3HpV/RFAbMLniOgL7/2tzBxV8UERmW4Fgpmvrh7lVXmeTxFRzO5jACbK5fLGkZGR32syUNXsWOuo/zOqel0I4QJmFgC/zRMXhaiW9GYRuZKZ40T0ZryQALy00Fc9HYijVGxIxGGEiB4noj3e+9hAhZe19hYimlTVg0T0EIDPALwsInsXOllqIIk1ugLARyIyWjjyAkNm3hpFLb5qlMGmU3E7gVvZcwZgxTPwD6DCnTCekbXfAAAAAElFTkSuQmCC) no-repeat 0 8rpx/22rpx 20rpx;
+}
+
+.playlist-name {
+  font-size: 26rpx;
+  line-height: 1.2;
+  padding: 4rpx 0 0 12rpx;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
