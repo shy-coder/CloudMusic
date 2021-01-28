@@ -9,7 +9,7 @@ cloud.init({
 const TcbRouter = require('tcb-router')
 const axios = require('axios')
 //定义基础URL
-const BASE_URL = 'https://shycoder-cmusic.cn1.utools.club/top'
+const BASE_URL = 'https://shy-coder.cn1.utools.club'
 // 云函数入口函数
 exports.main = async (event, context) => {
   const app = new TcbRouter({
@@ -27,4 +27,15 @@ exports.main = async (event, context) => {
         return res
       })
   })
+
+  app.router('musiclist', async (ctx, next) => {
+    console.log('######' + event.playlistId)
+    const res = await axios.get(`${BASE_URL}/playlist/detail?id=${parseInt(event.playlistId)}`)
+    console.log('######' + res)
+    ctx.body = res.data
+  })
+
+  
+
+  return app.serve()
 }

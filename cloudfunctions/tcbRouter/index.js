@@ -14,7 +14,7 @@ exports.main = async (event, context) => {
   })
   app.use(async (ctx, next) => {
     console.log('进入全局中间件')
-    ctx.dada = {}
+    ctx.data = {}
     ctx.data.openId = event.userInfo.openId
     await next()
     console.log('推出全局中间件')
