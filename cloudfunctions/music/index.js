@@ -13,7 +13,7 @@ const BASE_URL = 'https://shy-coder.cn1.utools.club'
 // 云函数入口函数
 exports.main = async (event, context) => {
   const app = new TcbRouter({
-    event
+    event,
   })
 
   //歌单列表请求，需要传入url，其实记录索引，请求的记录数，按照创建时间降序排列
@@ -28,6 +28,7 @@ exports.main = async (event, context) => {
       })
   })
 
+  //根据歌单id获取歌单详情
   app.router('musiclist', async (ctx, next) => {
     console.log('######' + event.playlistId)
     const res = await axios.get(`${BASE_URL}/playlist/detail?id=${parseInt(event.playlistId)}`)
@@ -35,7 +36,9 @@ exports.main = async (event, context) => {
     ctx.body = res.data
   })
 
-  
-
+  app.router('musicUrl', async (ctx, next) => {
+    const res = await axios.get(`${BASE_URL}/song/url?id=${event.musicId}`)
+    ctx.body = res.data
+  })
   return app.serve()
 }
