@@ -28,7 +28,7 @@ Component({
    */
   methods: {
     //跳转到歌单详情页
-    toToMusiclist() {
+    goToMusiclist() {
       wx.navigateTo({
         url: `../../pages/musiclist/musiclist?playlistId=${this.properties.playlist.id}`,
       })

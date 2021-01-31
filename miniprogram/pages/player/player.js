@@ -1,7 +1,7 @@
 let musiclist = []
 //正在播放的歌曲的index
 let playingIndex = 0
-
+const backgroundAudioManager = wx.getBackgroundAudioManager()
 Page({
 
   /**
@@ -9,6 +9,7 @@ Page({
    */
   data: {
     picUrl : '',
+    isPlaying : false
   },
 
   /**
@@ -20,6 +21,12 @@ Page({
     playingIndex = options.index
     musiclist = wx.getStorageSync('musiclist')
     this._loadMusicDetail(options.musicId)
+  },
+
+  togglePlaying() {
+    this.setData({
+      isPlaying : !this.data.isPlaying
+    })
   },
 
   _loadMusicDetail(musicId) {
@@ -39,6 +46,48 @@ Page({
       }
     }).then((res) => {
       console.log(res)
+      const url = res.result.data[0].url
+      if (url === null) {
+        wx.showToast({
+          title: '没充会员你听个泡泡茶壶啊'
+        })
+        backgroundAudioManager.pause()
+        this.setData({
+          isPlaying:false
+        })
+        return
+      }
+      backgroundAudioManager.src = url
+      backgroundAudioManager.title = music.name
+      backgroundAudioManager.coverImgUrl = music.al.picUrl
+      backgroundAudioManager.singer = music.ar[0].name
+      this.setData ({
+        isPlaying : true
+      })
     })
+  },
+  togglePlaying() {
+    if(this.data.isPlaying) {
+      backgroundAudioManager.pause()
+    }else{
+      backgroundAudioManager.play()
+    }
+    this.setData ({
+      isPlaying : !this.data.isPlaying
+    })
+  },
+  onPrev(){
+    playingIndex--
+    if(playingIndex === 0){
+      playingIndex = musiclist.length - 1
+    }
+    this._loadMusicDetail(musiclist[playingIndex].id)
+  },
+  onNext(){
+    playingIndex++
+    if(playingIndex === musiclist.length){
+      playingIndex = 0
+    }
+    this._loadMusicDetail(musiclist[playingIndex].id)
   }
 })
